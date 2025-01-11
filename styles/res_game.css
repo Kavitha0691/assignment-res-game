@@ -1,0 +1,235 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html body {
+    background-color: rgb(37, 39, 39);
+    margin: 0;
+    height: auto;
+    overflow: auto;
+}
+
+.header {
+    padding: 28px;
+} 
+
+.h1 {
+    color: white;
+    font-size: 4rem;
+    padding: 10px;
+    animation: glowing-text 1.5s infinite alternate;
+    text-align: center;
+}
+
+.section {
+    padding: 50px;
+    display: flex;
+    isolation: isolate;
+}
+
+.h2 {
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+}
+
+.game-container {
+    position: relative;
+    padding: 40px;
+    width: 100%; 
+    border-radius: 15px;
+    text-align: center;
+    overflow: auto;
+    z-index: 1;
+
+}
+
+.game-container div{
+    color: white;
+    font-size: 1.5rem;
+    padding: 5px;
+}
+
+.game-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    border: 5px solid transparent;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(0, 255, 0, 0.8),
+        rgba(0, 0, 255, 0.8),
+        rgba(255, 0, 255, 0.8)
+    );
+    background-size: 400% 400%; 
+    background-clip: border-box;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0); 
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0); 
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: glowing-border 4s linear infinite;
+    z-index: -1;
+}
+
+/* Button Styling */
+button {
+    padding: 16px 25px;
+    font-size: 20px;
+    background-color: #34c5ab;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 
+    0 0 15px rgba(216, 133, 66, 0.4),  
+    0 0 15px rgba(213, 203, 4, 0.4),
+    0 0 15px rgba(114, 239, 5, 0.4);
+}
+
+button:hover {
+    background-color: #6ed95e;
+}
+
+.option-button {
+    padding: 16px 25px;
+    margin-right: 16px;
+    font-size: 25px;
+    background-color:#131313;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 320px;
+}
+
+.option-button:hover {
+    background-color: #428039;
+}
+
+#message-area {
+    margin: 20px;
+    padding: 10px;
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+}
+
+.message.hint {
+    color:white;
+    font-style: italic;
+    font-size: 2.5rem;
+}
+
+@keyframes glowing-border {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes glowing-text {
+    0% {
+        text-shadow: 
+            0 0 5px rgba(214, 207, 61, 0.8), 
+            0 0 10px rgba(214, 207, 61, 0.6), 
+            0 0 15px rgba(214, 207, 61, 0.4);
+    }
+    50% {
+        text-shadow: 
+            0 0 5px rgba(211, 82, 82, 0.8), 
+            0 0 10px rgba(211, 82, 82, 0.6), 
+            0 0 15px rgba(211, 82, 82, 0.4);
+    }
+    100% {
+        text-shadow: 
+            0 0 5px rgba(114, 216, 24, 0.8), 
+            0 0 10px rgba(114, 216, 24, 0.6), 
+            0 0 15px rgba(114, 216, 24, 0.4);
+    }
+}
+
+@media (max-width: 768px) {
+    .game-container {
+        width: 90%; 
+        padding: 20px; 
+    }
+
+    .option-button {
+        width: 80%; 
+        font-size: 20px;
+    }
+
+    #message-area {
+        font-size: 2rem; 
+    }
+
+    #score-display, #win-loss-counter {
+        font-size: 1.5rem; 
+    }
+
+    .h1 {
+        font-size: 2.5rem; 
+    }
+
+    .h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .game-container {
+        width: 110%; 
+        max-width: 320px; 
+        padding: 15px; 
+    }
+
+    .message.hint {
+        font-size: 1.5rem; 
+        word-wrap: break-word; 
+        white-space: normal; 
+        padding: 10px; 
+        text-align: center; 
+    }
+
+    button {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .option-button {
+        width: 100%;
+        font-size: 16px;
+        display: inline;
+    }
+
+    #message-area {
+        font-size: 2rem; 
+        word-wrap: wrap;
+        display: inline;
+    }
+
+    .h1 {
+        font-size: 2rem; 
+    }
+
+    .h2 {
+        font-size: 1.3rem; 
+    }
+}
