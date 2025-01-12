@@ -125,7 +125,7 @@ const handleUserInput = (userInput) => {
 const endGame = () => {
     $(".game-container").fadeOut(500, () => { 
         $("#message-area").empty();
-        $("#message-area").append(`<p class="message final">Game Over! Your Score: ${score}/${gameLevel1.length} \u1F3C6</p>`);
+        $("#message-area").append(`<p class="message final">Game Over! Your Score: ${score}/${gameLevel1.length} \u{1F3C6}</p>`);
         
         $("#message-area").fadeIn(500).delay(2000).fadeOut(500, () => { 
             $(".game-container").fadeIn(500); 
