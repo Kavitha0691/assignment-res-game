@@ -80,7 +80,7 @@ const showNextPair = () => {
 
     if (currentPairIndex < gameLevel1.length) {
         const pair = gameLevel1[currentPairIndex];
-        $("#player-indicator").text(`Match the word: "${pair.first}"`);
+        $("#player-indicator").text(`What pairs with: "${pair.first}"`);
         newOptions(pair);
     } else {
         endGame();
@@ -130,7 +130,8 @@ const endGame = () => {
         $("#message-area").fadeIn(500).delay(2000).fadeOut(500, () => { 
             $(".game-container").fadeIn(500); 
             $("#replay-button").show(); 
-            $("#options-container").hide(); 
+            $("#options-container").hide();
+            $("#player-indicator").hide();
         });
     });
 
@@ -146,6 +147,7 @@ const endGame = () => {
         $("#replay-button").show();
         $("#options-container").show();
         $("#message-area").empty().show(); 
+        $("#player-indicator").show();
 
         showNextPair();
     });
@@ -153,6 +155,16 @@ const endGame = () => {
     $("#replay-button").hide(); 
 };
 
+const handleCancelClick = () => {
+    $(".game-container").hide();
+    $("#message-area").empty();
+    $("#message-area").append(`<p class="message final">Game Over! Your Score: ${score}/${gameLevel1.length} \u{1F3C6}</p>`);
+    $("#message-area").fadeIn(500);
+    $("#replay-button").show(); // Show the replay button after cancelling
+};
+
+// Attach event listeners
+$("#cancel-button").on("click", handleCancelClick);
 // Attach event listeners
 $("#start-button").on("click", startGame);
 $("#replay-button").on("click", startGame);

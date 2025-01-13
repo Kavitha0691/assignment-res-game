@@ -45,6 +45,29 @@ html body {
 
 }
 
+#score-display,
+#win-loss-counter {
+    font-size: 2rem;
+}
+
+#player-indicator {
+    font-size: 1.8rem;
+}
+
+#cancel-button {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(28, 135, 137);
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
 .game-container div{
     color: white;
     font-size: 1.5rem;
@@ -176,6 +199,12 @@ button:hover {
         font-size: 20px;
     }
 
+    #cancel-button {
+        top: 15px; /* Adjust top position */
+        right: 15px; /* Adjust right position */
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+
     #message-area {
         font-size: 2rem; 
     }
@@ -217,6 +246,13 @@ button:hover {
         width: 100%;
         font-size: 16px;
         display: inline;
+    }
+
+    #cancel-button {
+        top: 20px; /* Even closer to the top for very small screens */
+        right: 20px; /* Right-aligned for very small screens */
+        font-size: 12px;
+        width: 60px; /* Make the font even smaller */
     }
 
     #message-area {
