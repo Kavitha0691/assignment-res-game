@@ -107,13 +107,14 @@ const handleUserInput = (userInput) => {
         $(".game-container").hide(); 
         $("#message-area").append(`<p class="message hint">\u{1F4A1} Hint: ${pair.hint}</p>`);
         setTimeout(() => {
+            $("#message-area").empty();
             $(".game-container").show(); 
         }, 3000); 
     } else {
         losses++;
         updateScoreboard();
         $(".game-container").hide();
-        $("#message-area").append(`<p class="message error">\u274C Wrong! The correct answer is: "${pair.answer}".</p>`);
+        $("#message-area").append(`<p class="message error">\u274C Wrong! The correct answer is: "${pair.first}  ${pair.answer}".</p>`);
         setTimeout(() => {
             currentPairIndex++;
             hintUsed = false;
